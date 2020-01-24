@@ -20,7 +20,7 @@ int combination(int n, int r)
 	if(r==0)
 		return 1;
 	else
-		return ( n*combination(n-1,r-1) )/r;
+		return ( 1.0*combination(n-1,r-1) )*n/r;
 }
 
 int main()
@@ -33,13 +33,29 @@ int main()
 	{
 		if(n<0 || r<0 || n<r)
 			throw "\nINVALID INPUT ....!!!!!!";
-		else if(r==0)
-			throw 1;
+		
 		else
 		{
-			cout<<"\n#--------------------------------------------------------------------------#\n";
-			cout<<"\n Permutation (" <<n<<"P"<<r<<" ): "<<permutation(n,r);
-			cout<<"\n Combination (" <<n<<"C"<<r<<" ): "<<combination(n,n-r);
+			cout<<"\n1. PERMUTATION";
+			cout<<"\n2. COMBINATION";
+			cout<<"\nENTER CHOICE.....";
+			int choice;
+			cin>>choice;
+			switch(choice)
+			{
+				case 1:
+					cout<<"\n#--------------------------------------------------------------------------#\n";
+					cout<<"\n Permutation (" <<n<<"P"<<r<<" ): "<<permutation(n,r);
+					break;
+					
+				case 2:
+					cout<<"\n#--------------------------------------------------------------------------#\n";
+					cout<<"\n Combination (" <<n<<"C"<<r<<" ): "<<combination(n,n-r);
+					break;
+					
+				default:
+					break;
+			}
 		}
 		
 	}
